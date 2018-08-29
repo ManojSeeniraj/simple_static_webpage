@@ -1,0 +1,399 @@
+<link href="bootstrap-3.3.6-dist/bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="bootstrap-4.0.0-alpha.3/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<script src="bootstrap-3.3.6-dist/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<script src="bootstrap-4.0.0-alpha.3/js/tests/vendor/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>agri@backbone</title>
+<style>
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;margin:0}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 3s;
+  animation-name: fade;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+.row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+   
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+   .sidenav {
+     
+    background-color: #eee;
+    width: 350px;
+    height: 500px;
+    border: #000;
+}
+.sidenav:hover{
+	visibility:visible;
+}
+.scrollbox {
+  width: 350px;
+  height: 400px;
+  overflow: auto;
+  visibility: hidden;
+}
+.scrollbox-content,
+.scrollbox:hover {
+  visibility: visible;
+}
+
+.scrollbox_delayed {
+  transition: visibility 0.2s;
+}
+.scrollbox_delayed:hover {
+  transition: visibility 0s 0.2s;
+}
+.navbar-defau .navbar-nav > li > a {
+    color: #FF0;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1em;
+    padding: 0.5em 2em;
+	background-image:url(images/golf-course.jpg);
+}
+    }
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-defau navbar-fixed-top" style="background-image:url(images/golf-course.jpg);border-bottom:3.5px solid #FFF;">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse"  id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+      <li><a href="indexx.html">HOME</a></li>
+        <li><a href="green land weeds.html">GREEN WEEDS</a></li>
+        <li><a href="wetweedgrass.html">WET WEEDS</a></li>
+        <li><a href="drylandgrass.html">DRY WEEDS</a></li>
+        <li><a href="allweeds.html">ALL WEEDS</a></li>
+        <li><a href="non-agriweeds.html">NON-AGRICULTURAL</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="images/177280565.jpg" style="width:100%;height:400px" >
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="images/sunset-and-wheat-field-wallpaper-hd-beautiful-desktop-background-hd-wallpapers-of-sunset-field-free-download.jpg" style="width:100%;height:400px"">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="images/Green-Nature-HD-Wallpapers.jpg"style="width:100%;height:400px">
+  <div class="text">Caption Three</div>
+</div>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+<div>
+<h1 style="size:9px;font:'Courier New', Courier, monospace;text-align:center;background-image:url(../golf-course.jpg);color:#FF0;">NON-AGRICULTURAL WEEDS</h1>
+</div>
+<br>
+<br>
+<div >
+ <div class="sidenav" style="background-color:#FFF">
+ <div class="scrollbox">
+ <div class="scrollbox-content">
+ <ul class="nav nav-stacked">
+ 
+<li>A:</li>
+<li><a href="#">Abutilon hirtum</a></li>
+<li><a href="#">Abutilon indicum</a></li>
+<li><a href="#">Acanthospremum hispidum</a></li>
+<li><a href="#">Achyranthes aspera</a></li>
+<li><a href="#">Aerva lanata</a></li>
+<li><a href="#">Aerva tomentosa</a></li>
+<li><a href="#">Alternanthera pungens Syn: A. echinata</a></li>
+<li><a href="#">Alysicarpus rugosus</a></li>
+<li><a href="#">Amaranthus  viridis</a></li>
+<li><a href="#">Amaranthus spinosus </a></li>
+<li><a href="#">Andrographis paniculata</a></li>
+<li><a href="#">Anisomeles malabarica</a></li>
+<li><a href="#">Argemone mexicana</a></li>
+<li>B:</li>
+<li><a href="#">Barleria montana</a></li>
+<li><a href="#">Bidens pilosa</a></li>
+<li><a href="#">Blepharis maderapatensis</a></li>
+<li><a href="#">Boerhaavia diffusa</a></li>
+<li>C:</li>
+<li><a href="#">Calotropis gigantean</a></li>
+<li><a href="#">Calotropis procera</a></li>
+<li><a href="#">Cassia auriculata</a></li>
+<li><a href="#">Cassia nigricans</a></li>
+<li><a href="#">Cassia occidentalis</a></li>
+<li><a href="#">Chenopodium ambrosioides</a></li>
+<li><a href="#">Chenopodium giganteum</a></li>
+<li><a href="#">Clitoria ternatea</a></li>
+<li><a href="#">Coccinia indica</a></li>
+<li><a href="#">Conyza ambigua</a></li>
+
+<li><a href="#">Corchorus trilocularis</a></li>
+<li><a href="#">Crotolaria pallida</a></li>
+<li><a href="#">Crotoloria verrucosa</a></li>
+<li><a href="#">Croton bonplandianum Syn: C. sparsiflorus</a></li>
+<li><a href="#">Cyanotis cristata</a></li>
+<li><a href="#">Cystisus scoparius</a></li>
+<li>D:</li>
+<li><a href="#">Datura fatuosa Syn. Datura metal</a></li>
+<li><a href="#">Desmodium diffusum</a></li>
+<li><a href="#">Desmodium triflorum</a></li>
+<li>C:</li>
+<li><a href="#">Dichrocephala chrysanthemifolia</a></li>
+<li>E:</li>
+<li><a href="#">Ecbolium viride</a></li>
+<li><a href="#">Erigeron asteroids</a></li>
+<li><a href="#">Erigeron mucronatus</a></li>
+<li><a href="#">Euphorbia prostrata</a></li>
+<li><a href="#">Euphorbia pulcherima</a></li>
+<li><a href="#">Evolvulus alsinoides</a></li>
+<li>G:</li>
+<li><a href="#">Gendurussa vulgaris</a></li>
+<li><a href="#">Geniosporum tenuiflorum</a></li>
+<li>H:</li>
+<li><a href="#">Halenia perrottetii</a></li> 
+<li><a href="#">Heliotropium indicum</a></li>
+<li><a href="#">Hemidesmus indicus</a></li>
+<li><a href="#">Hibiscus vitifolius</a></li>
+<li>I:</li>
+<li><a href="#">Indigofera caerulea</a></li>
+<li><a href="#">Indigofera trita</a></li>
+<li><a href="#">Ipomoea pes-tigiridis</a></li>
+<li>J:</li>
+<li><a href="#">Jatropha gossypifolia</a></li>
+<li><a href="#">Justicia prostrata</a></li>
+<li><a href="#">Justicia tranquebariensis</a></li>
+<li>L:</li>
+<li><a href="#">Lactuca runcinata</a></li>
+<li><a href="#">Lantana camera</a></li>
+<li><a href="#">Leptadina reticulata</a></li>
+<li><a href="#">Leucas hirta</a></li>
+<li>M:</li>
+<li><a href="#">Melothria maderaspatna</a></li>
+<li><a href="#">Merremia tridentata</a></li>
+<li><a href="#">Mimosa pudica</a></li>
+<li><a href="#">Mollugo lotoides</a></li>
+<li>O:</li>
+<li><a href="#">Ocimum canum</a></li>
+<li><a href="#">Ocimum tenuiflorum</a></li>
+<li>P:</li>
+<li><a href="#">Parthenium hysterophorus</a></li>
+<li><a href="#">Passiflora foetida</a></li>
+<li><a href="#">Pedalium murex</a></li>
+<li><a href="#">Pergularia daemia</a></li>
+<li><a href="#">Plectranthus mollis</a></li>
+<li><a href="#">Polygala bolbothrix</a></li>
+<li><a href="#">Priva leptostachia</a></li>
+<li>R:</li>
+<li><a href="#">Rhynchosia aurea</a></li>
+<li>S:</li>
+<li><a href="#">Solanum torvum</a></li>
+<li><a href="#">Solanum trilobatum</a></li>
+<li><a href="#">Spilanthes calva</a></li>
+<li>T:</li>
+<li><a href="#">Tragia involucrata</a></li>
+<li><a href="#">Tragia pluknetii</a></li>
+<li><a href="#">Trianthema decandra</a></li>
+<li><a href="#">Tribulus terrestris</a></li>
+<li><a href="#">Tridax procumbens</a></li>
+<li>V:</li>
+<li><a href="#">Vicoa indica</a></li>
+<li>W:</li>
+<li><a href="#">Waltheria indica</a></li>
+<li><a href="#">Wedelia chinensis</a></li>
+<li>X:</li>
+<li><a href="#">Xanthium strumarium</a></li>
+
+</ul>
+        </div>
+        </div>
+        </div>
+        </div>
+        <br>
+        <br>
+        
+        
+        
+
+    <style>
+/* Add a dark background color to the footer */
+footer {
+	size:5px;
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+}
+
+footer a {
+    color: #f5f5f5;
+}
+
+footer a:hover {
+    color: #777;
+    text-decoration: none;
+}
+</style>
+
+<footer class="text-center">
+ 
+  </a><br><br>
+  <p>project by <a href="http://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.agri.com</a></p> 
+</footer>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+
+
+
+
+</body>
+</p>
+</html>    
